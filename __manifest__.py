@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "custom_modulo",
+    'name': "Modulo PCI Personalizado",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,12 +20,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['crm','sale','sale_crm'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/views.xml',
+        
+        'views/sale_order.xml',
+        'views/crm.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

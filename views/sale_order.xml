@@ -1,28 +1,29 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="custom_modulo.list">
-      <field name="name">custom_modulo list</field>
-      <field name="model">custom_modulo.custom_modulo</field>
+    <record id="sale_order_form_pci_inherit" model="ir.ui.view">
+      <field name="name">sale.order.form.pci</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale_crm.sale_view_inherit123"></field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <xpath expr="//group[@name='technical']" position="inside">
+          <field name="crm_stage_ids" invisible="0"/>
+        </xpath>
       </field>
     </record>
-    -->
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="custom_modulo.action_window">
-      <field name="name">custom_modulo window</field>
-      <field name="res_model">custom_modulo.custom_modulo</field>
-      <field name="view_mode">tree,form</field>
+    <!--Vista Tree-->
+    <record id="sale_order_tree_inherit_pci" model="ir.ui.view">
+      <field name="name">sale.order.tree.inherit.pci</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_quotation_tree"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="opportunity_id" optional="hide"/>
+          <field name="crm_stage_ids" optional="hide"/>
+        </xpath>
+      </field>
     </record>
-    -->
 
     <!-- server action to the one above -->
     <!--
