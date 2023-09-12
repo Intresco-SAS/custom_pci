@@ -19,8 +19,20 @@
       <field name="inherit_id" ref="sale.view_quotation_tree"></field>
       <field name="arch" type="xml">
         <xpath expr="//field[@name='partner_id']" position="after">
+          <field name="pipeline" optional="hide"/>
           <field name="opportunity_id" optional="hide"/>
           <field name="crm_stage_ids" optional="hide"/>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="view_order_form_pci" model="ir.ui.view">
+      <field name="name">sale.view.order.form.pci</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="pipeline"/>
         </xpath>
       </field>
     </record>

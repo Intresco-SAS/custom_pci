@@ -18,11 +18,6 @@ class SaleOrder(models.Model):
 
     
     crm_stage_ids = fields.Many2one('crm.stage',string="Etapa CRM", compute="crm_stage")
-
-class Lead(models.Model):
-    _inherit = 'crm.lead'
-
-    pipeline  =  fields.Selection([('backlog', 'Backlog'),('nuevo', 'Nuevo')])
-    # value = fields.Integer()
-    # value2 = fields.Float(compute="_value_pc", store=True)
-    # description = fields.Text()
+    pipeline  =  fields.Selection([('backlog', 'Backlog'),
+                                   ('nuevo', 'Nuevo')],
+                                    default='nuevo')
