@@ -34,6 +34,8 @@
         
         'views/sale_order.xml',
         'views/purchase_views.xml',
+        'views/purchase_order_report.xml',
+        'views/purchase_quotation_report.xml',
         #'views/crm.xml',
         #'views/templates.xml',
     ],

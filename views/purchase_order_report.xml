@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="purchaseorder_document_inherit_pci" inherit_id="purchase.report_purchaseorder_document">
+
+            <xpath expr="//th[@name='th_description']" position="after">
+                <th name="th_analytic_account" >
+                    <strong>C.C</strong>
+                </th>
+            </xpath>
+
+            <xpath expr="//td[@id='product']" position="after">
+                <td id="analytic_account">
+                    <span t-field="line.account_analytic_id.code"/>
+                </td>  
+            </xpath>
+
+            <xpath expr="//th[@name='th_date_req']" position="replace">
+                <th name="th_date_req" class="text-center">
+                    <strong>F.Entrega</strong>
+                </th>
+            </xpath>
+
+            <xpath expr="//table/tbody/t/tr/t/td[4]" position="replace">
+                <td id="date_planned">
+                    <span t-field="line.date_planned" t-options="{&quot;format&quot;: &quot;dd-MM-yyyy&quot;}"/>
+                </td>
+            </xpath>
+
+		</template>
+    </data>
+</odoo>
+           
